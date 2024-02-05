@@ -1,0 +1,214 @@
+
+<div class="content-body">
+    <!-- row -->
+    <div class="container-fluid">
+      <!-- Add Order -->
+      <!-- row -->
+      <div class="row">
+        <!-- <a href="javascript:void(0);" (click)="openDeleteModal()" data-toggle="modal" data-target=".bd-example-modal-lg2" aria-label="Close" title="Delete"> 
+          <i class="fa fa-close color-danger"></i>
+      </a> -->
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">APPLICATION PORTFOLIO MASTER</h4>
+            </div>
+            <div class="card-body">
+              <div> </div>
+              <div class="table-responsive">
+                <table class="table table-bordered verticle-middle table-responsive-sm">
+                  <tbody>
+                    <tr>
+                      <td rowspan="2" bgcolor="#fafafa" scope="row">Application Name <span class="txt_r">*</span> </td>
+                      <td><div>
+                          <input type="radio" name="radio" style="margin-right:5px;">
+                          New Application <br>
+                          <input type="radio" name="radio"  style="margin-right:5px;">
+                          Modify Application </div></td>
+                      <td rowspan="2" bgcolor="#fafafa">Application  Short Name <span class="txt_r">*</span></td>
+                      <td rowspan="2"><input type="text" class="form-control"  value=""/></td>
+                      <td rowspan="2" bgcolor="#fafafa">Application  Descriptions <span class="txt_r">*</span></td>
+                      <td rowspan="2"><div class="form-group">
+                          <textarea class="form-control" placeholder="ARN No" value=""></textarea>
+                        </div></td>
+                    </tr>
+                    <tr>
+                      <td><input name="text2" type="text" class="form-control" value=""/></td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#fafafa" scope="row">Product/Inhouse <span class="txt_r">*</span> </td>
+                      <td><div>
+                          <select class="form-control">
+                            <option>-- Select --</option>
+                            <option>Product/Inhouse</option>
+                          </select>
+                        </div></td>
+                      <td bgcolor="#fafafa">Production/GO LIVE DATE </td>
+                      <td><input type="text" class="form-control"  value=""/></td>
+                      <td bgcolor="#fafafa">Type of Application<span class="txt_r">*</span></td>
+                      <td><div class="form-group">
+                          <select class="form-control">
+                            <option>-- Select --</option>
+                            <option>Type of Application</option>
+                          </select>
+                        </div></td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#fafafa" scope="row">Authentication Mode <span class="txt_r">*</span> </td>
+                      <td><div>
+                          <input type="radio" name="radio" style="margin-right:5px;">
+                          AD Authentication &nbsp;
+                          <input type="radio" name="radio"  style="margin-right:5px;">
+                          User Defined Authentication </div></td>
+                      <td bgcolor="#fafafa">Internal/External Facing <span class="txt_r">*</span> </td>
+                      <td><div>
+                          <select class="form-control">
+                            <option>-- Select --</option>
+                            <option>Internal/External Facing</option>
+                          </select>
+                        </div></td>
+                      <td bgcolor="#fafafa">Last Audited(Info Sec Audit) </td>
+                      <td><input name="text3" type="text" class="form-control" value=""/></td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#fafafa" scope="row">Vender Name</td>
+                      <td><input type="text" class="form-control" value="Jyotiraj.Sahoo@yesbank.com"/></td>
+                      <td bgcolor="#fafafa">Status <span class="txt_r">*</span> </td>
+                      <td><div>
+                          <select class="form-control">
+                            <option>-- Select --</option>
+                            <option>Status</option>
+                          </select>
+                        </div></td>
+                      <td bgcolor="#fafafa">Application URL - DNS <span class="txt_r">*</span></td>
+                      <td><span>
+                        <textarea name="textarea" class="form-control" placeholder="ARN No" value=""></textarea>
+                        </span></td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#fafafa">Application URL - IP Address <span class="txt_r">*</span></td>
+                      <td><span>
+                        <textarea name="textarea" class="form-control" placeholder="ARN No" value=""></textarea>
+                        </span></td>
+                      <td bgcolor="#fafafa">Active <span class="txt_r">*</span> </td>
+                      <td><div>
+                          <input type="radio" name="radio" style="margin-right:5px;">
+                          Yes
+                          &nbsp;
+                          <input type="radio" name="radio"  style="margin-right:5px;">
+                          No </div></td>
+                      <td bgcolor="#fafafa">Is Checker </td>
+                      <td><div>
+                          <input type="checkbox"  style="margin-right:5px;">
+                        </div></td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#fafafa" scope="row">Tiering <span class="txt_r">*</span></td>
+                      <td><span>
+                        <select name="select" class="form-control">
+                          <option>-- Select --</option>
+                          <option>Tiering</option>
+                        </select>
+                        </span></td>
+                      <td bgcolor="#fafafa" scope="row">Access Management by <span class="txt_r">*</span></td>
+                      <td><div>
+                          <select name="select" class="form-control">
+                            <option>-- Select --</option>
+                            <option>Access Management</option>
+                          </select>
+                        </div></td>
+                      <td bgcolor="#fafafa">&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div style="margin-top:50px;">
+                <div class="row" style="background:#eef6f7; padding-top: 17px; margin: 0px -5px;">
+                  <div class="col-md-2 col-sm-5" style="color:#000;">Owner Category <span class="txt_r">*</span> :</div>
+                  <div class="col-md-3 col-sm-7">
+                    <div class="form-group">
+                      <div>
+                        <select name="select" class="form-control">
+                          <option>-- Select --</option>
+                          <option>Access Management</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-2 col-sm-5" style="color:#000;padding: 5px;">ADID/Employee No. <span class="txt_r">*</span> :</div>
+                  <div class="col-md-3 col-sm-7">
+                    <div class="form-group">
+                      <input type="text" class="form-control" value="">
+                    </div>
+                  </div>
+                  <div class="col-md-2 col-sm-4" style="text-align: center;">
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary">Verify</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" style="padding-top: 17px; margin: 0px -5px;">
+                  <div class="col-md-3 col-sm-5" style="color:#000;">Employee Name :</div>
+                  <div class="col-md-3 col-sm-7">
+                    <div class="form-group">
+                      <div class="txt_l">&nbsp;</div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-5" style="color:#000;">Business Unit  :</div>
+                  <div class="col-md-3 col-sm-7">
+                    <div class="form-group">
+                      <div class="txt_l">&nbsp;</div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-5" style="color:#000;">Corporate Designation :</div>
+                  <div class="col-md-3 col-sm-7">
+                    <div class="form-group">
+                      <div class="txt_l">&nbsp;</div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-5" style="color:#000;">Functional Designation  :</div>
+                  <div class="col-md-3 col-sm-7">
+                   <div class="form-group">
+                      <div class="txt_l">&nbsp;</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 col-sm-12" style="text-align: center; margin: 10px;">
+                <button type="submit" class="btn btn-primary" >Add</button>
+                <button type="submit" class="btn btn-primary">Reset</button>
+              </div>
+            </div>
+            <div style="color:#000; font-weight:500; text-align:left; padding:15px;">* Enter Ad ID and click on Verify link to validate and click on ADD button to add the Owner</div>
+         
+				<div class="form-group"  style="text-align: center; margin: 10px;">
+                      <button type="submit" class="btn btn-primary" (click)="submit()"  data-toggle="modal" data-target=".bd-example-modal-lg2" aria-label="Close" title="Delete">Submit</button>
+                    </div>
+
+
+		 </div>
+		  
+
+
+		  
+		  
+		  
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <app-spinner [show]="(spinnerService.spinnerState | async) ?? false"></app-spinner>
+
+
+  <app-common-popup *ngIf="commenmodel.showModal$ | async"
+  [title]="(commenmodel.modalData$ | async)?.title || ''"
+  [message]="(commenmodel.modalData$ | async)?.message || ''">
+</app-common-popup>
+
+
+  
+

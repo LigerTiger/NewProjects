@@ -1,0 +1,189 @@
+<div class="content-body">
+  <div class="container-fluid" > 
+    <!-- Add Order -->
+    <!-- row -->
+    <div class="row" >
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">APPLICATION DL MASTER</h4>
+          </div>
+          <div class="card-body">
+            <form
+            [formGroup]="dlmaster"
+            class="forms"
+            >
+            <div>                     
+              <!-- <div class="row">
+                <div class="col-md-2 col-sm-6 set_c_p8">Search By Email :</div>
+                <div class="col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <input type="email" class="form-control" value="" >
+                  </div>
+                  </div>
+              </div> -->
+              <div class="row">
+                <div class="col-md-2 col-sm-6 set_c_p8">Application Name  :</div>
+                <div class="col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <!-- <select class="form-control" [(ngModel)]="selectedOption" formControlName="applicationname">
+                      <option>-- Select --</option>
+                      <option *ngFor="let option of dynamicOptions" [value]="option">{{ option }}</option>
+                    </select>
+                    <div
+                    *ngIf="!applicationname?.valid && (applicationname?.dirty || applicationname?.touched)"
+                    style="color: red"
+                    >
+                    Please Select Name!
+                  </div> -->
+                  <select class="form-control" formControlName="appName" [attr.disabled]="isEditMode ? true : null" >
+                    <option value="">-- Select --</option>
+                    <option *ngFor="let option of dynamicOptions" [value]="option.appName">{{ option.appName }}</option>
+                  </select>
+                  <div *ngIf="dlmaster.get('appName')?.invalid && (dlmaster.get('appName')?.dirty || dlmaster.get('appName')?.touched)" style="color: red">
+                    Please Select Name!
+                  </div>
+                  </div>
+                </div>
+                <div class="col-md-2 col-sm-6 set_c_p8">Email ID :</div>
+                <div class="col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <input type="email" class="form-control" value=""  formControlName="emailID">
+                    <div *ngIf="dlmaster.get('emailID')?.invalid && (dlmaster.get('emailID')?.dirty || dlmaster.get('emailID')?.touched)" style="color: red">
+                      Please Enter Email!
+                    </div>
+                    <div *ngIf="isEmailInvalid()">
+                      Please enter a valid Gmail address.
+                    </div>
+                  </div>
+                  <!-- <div class="col-md-4 col-sm-6">
+                    <div class="form-group" [ngClass]="{'has-error': dlmaster.get('emailID')?.invalid && (dlmaster.get('emailID')?.dirty || dlmaster.get('emailID')?.touched)}">
+                      <input type="email" class="form-control" value="" formControlName="emailID">
+                      <div *ngIf="dlmaster.get('emailID')?.invalid && (dlmaster.get('emailID')?.dirty || dlmaster.get('emailID')?.touched)" style="color: red">
+                        Please Enter Email!
+                      </div>
+                      <div *ngIf="isEmailInvalid()">
+                        Please enter a valid Gmail address.
+                      </div>
+                    </div>
+                  </div> -->
+                  
+                </div>
+                <div class="col-md-2 col-sm-6 set_c_p8">Active Status <span class="txt_r">*</span> :</div>
+                <div class="col-md-4 col-sm-6 set_c_2p8">
+                  <div class="form-group">
+                    <!-- <input type="radio" name="radio" class="mrg_rgt5"  formControlName="status" value="1" [checked]="isactive === 'true'">
+                    Active &nbsp;
+                    <input type="radio" name="radio" class="mrg_rgt5"  formControlName="status" value="0" [checked]="isactive === 'false'">
+                    Inactive</div> -->
+                    
+                    <input type="radio" name="radio" class="mrg_rgt5"  formControlName="activeStatus" [value]="true" >
+                    Active &nbsp;
+                    <input type="radio" name="radio" class="mrg_rgt5"   formControlName="activeStatus" [value]="false">
+                    Inactive</div>
+                    <div *ngIf="dlmaster.get('activeStatus')?.invalid && (dlmaster.get('activeStatus')?.dirty || dlmaster.get('activeStatus')?.touched)" style="color: red">
+                      Please Select Status!
+                    </div>
+                </div>
+                <div *ngIf="searchinputselect" style="color: red">
+                  Please Select Atleast One Input!
+                </div>
+                <div class="col-md-12 col-sm-12 btn_s">
+                  <!-- <button type="submit" class="btn btn-primary"   [disabled]="!dlmaster.valid" (click)="submit()">Submit</button> -->
+                  <button type="submit" class="btn btn-primary" *ngIf="postbtn"  [disabled]="!dlmaster.valid" (click)="submit()">Submit</button>
+                  <button type="submit" class="btn btn-primary" *ngIf="updadebtn"  [disabled]="!dlmaster.valid" (click)="updateDltable()">Update</button>
+                  <button type="submit" class="btn btn-primary" (click)="reset()">Reset</button>
+                  <button type="submit" class="btn btn-primary" *ngIf="searchbtn" (click)="search()"  [disabled]="!isSearchButtonEnabled()">Search</button>
+                </div>
+              </div>
+            </div>
+            </form>
+            <div class="table-responsive">
+              <table class="table table-bordered verticle-middle table-responsive-sm">
+                <thead>
+                  <tr style="background: #e1e8f6;">
+                    <th scope="col">Application Name </th>
+                    <th scope="col">Email Id </th>
+                    <th scope="col">Status</th>
+                    <th scope="col" >Edit</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let data of dataset |  paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+                  <tr></tr>
+                  <tr>
+                    <td>{{data.appName}}</td>
+                    <td>{{data.emailID}}</td>
+                    <td>{{ data.activeStatus ? 'Active' : 'Inactive' }}</td>
+                    <td><span> <a href="javascript:void()" (click)="edit(data)" class="mr-4" data-toggle="tooltip" data-placement="top" title="Edit"> <i class="fa fa-pencil color-muted"></i> </a> </span></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <!-- <pagination-controls (pageChange)="p = $event"  class="float-right"></pagination-controls> -->
+              <!-- pagination -->
+
+              <div class="col-md-12">
+                <nav>
+                         <ul class="pagination pagination-gutter pagination-primary pagination-sm no-bg"  style="justify-content: center;  display: flex;">
+                          <li style="display: flex; align-items: center;" class="page-item">
+                            <span style="margin-right: 10px;">Item Per page :</span>
+                            <select class="form-control perpageitem" style="width: 50px;" #mySelect (change)="onSelectChange(mySelect.value)" [(ngModel)]="pageselection" >
+                              <option  value=1>1</option>
+                              <option  value=2>2</option>
+                              <option  value=3>3</option>
+                              <option  value=4>4</option>
+                              <option  value=5>5</option>
+                            </select>
+                          </li>
+                           <li class="page-item page-indicator" [class.disabled]="currentPage === 1" (click)="goToPage(1)" ><a class="page-link" href="javascript:void()" ><<</a></li>
+                           <li class="page-item page-indicator" [class.disabled]="currentPage === 1"  (click)="changePage('prev')"><a class="page-link" href="javascript:void()"><</a></li>
+                           <!-- <li class="page-item  active"><a class="page-link" href="javascript:void()">1</a></li> -->
+                           <li *ngFor="let page of getPages()" class="page-item" [class.active]="currentPage === page">
+                            <button class="page-link" (click)="goToPage(page)">{{ page }}</button>
+                          </li>
+                           <li class="page-item page-indicator"  [class.disabled]="currentPage === totalPages" (click)="changePage('next')"><a class="page-link" href="javascript:void()">></a></li>
+                           <li class="page-item page-indicator" *ngIf="totalPages > 0" (click)="goToPage(totalPages)"><a class="page-link" href="javascript:void()">>></a></li>
+                         </ul>
+                       </nav>
+              </div>
+  
+        
+
+              <!-- pagination end-->
+
+              
+
+              <div *ngIf="nodatafound" style="color: red">
+                No Data Found!
+              </div>
+              <div *ngIf="applicationnameexist" style="color: red">
+                Application Name already Selected! 
+              </div>
+              <div *ngIf="uniqueApplicationname" style="color: red">
+                Application Name already Selected! 
+              </div>
+              <div *ngIf="recordsaved" style="color: red">
+                Record Updated Succesfully! 
+              </div>
+              <div *ngIf="recordupdadted" style="color: red">
+                Record Updated Succesfully! 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
+</div>
+
+
+
+  
+
+  <app-spinner [show]="(spinnerService.spinnerState | async) ?? false"></app-spinner>
+
+
+  <app-common-popup *ngIf="commenmodel.showModal$ | async"
+  [title]="(commenmodel.modalData$ | async)?.title || ''"
+  [message]="(commenmodel.modalData$ | async)?.message || ''">
+</app-common-popup>

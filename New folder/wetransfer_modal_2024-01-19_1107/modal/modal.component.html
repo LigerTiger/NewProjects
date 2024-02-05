@@ -1,0 +1,21 @@
+
+
+  <div #myModal class="modal bd-example-modal-lg2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" style="color:#fff; width:100%; text-align:center;">{{ modalContent.title }}</h5>
+          <button type="button" class="close" data-dismiss="modal" (click)="close()"><span>&times;</span></button>
+        </div>
+        <div class="modal-body text-center">
+          {{ modalContent.message }}
+        </div>
+        <div class="modal-footer">
+          <button type="submit"  *ngIf="modalContent.buttonText=='success'" class="btn btn-primary" data-dismiss="modal" (click)="success()">Ok</button>
+          <button type="submit" *ngIf="modalContent.buttonText=='error'" class="btn btn-primary" data-dismiss="modal" (click)="error()">Ok</button>
+          <button type="submit" *ngIf="modalContent.buttonText=='invalid'" class="btn btn-primary" data-dismiss="modal" (click)="invalid()">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
